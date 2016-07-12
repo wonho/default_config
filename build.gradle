@@ -1,0 +1,59 @@
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'war'
+apply plugin : 'jetty'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+compileJava.options.encoding = 'UTF-8'
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    
+    compile 'org.springframework:spring-webmvc:4.2.4.RELEASE'
+    compile 'org.springframework:spring-test:4.2.4.RELEASE'       
+    compile 'org.springframework:spring-orm:4.2.4.RELEASE'
+ 
+    compile 'org.hibernate:hibernate-validator:4.2.0.Final'
+    
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    
+    compile 'org.slf4j:slf4j-api:1.7.13'
+	compile 'org.slf4j:jcl-over-slf4j:1.7.13'
+    compile 'ch.qos.logback:logback-classic:1.1.3'
+    
+
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+jettyRun{
+	contextPath = "default"
+	httpPort = 8080
+}
+
+jettyRunWar{
+	contextPath = "default"
+	httpPort = 8080
+}
+
+eclipse {
+ wtp {
+   component {
+     contextPath = 'default'
+     facet {
+      facet name: 'jst.web', version: '3.0'  // Servlet Spec Version 2.4
+      facet name: 'jst.java', version: '1.7' // Java Version
+     }
+   }
+ }
+}
+test {
+    systemProperties 'property': 'value'
+}

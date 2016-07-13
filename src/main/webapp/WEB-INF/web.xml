@@ -14,13 +14,13 @@
 		    <param-name>contextClass</param-name>
 		    <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
 	  </context-param>
-	  <context-param>
-		    <param-name>spring.profiles.active</param-name>
-		    <param-value>DEV</param-value>
-	  </context-param>
+<!-- 	  <context-param> -->
+<!-- 		    <param-name>spring.profiles.active</param-name> -->
+<!-- 		    <param-value>DEV</param-value> -->
+<!-- 	  </context-param> -->
 	  <context-param>
 		    <param-name>contextConfigLocation</param-name>
-		    <param-value>edu.showcase.system.config.RootConfig</param-value>
+		    <param-value>edu.showcase.system.config.MainConfig</param-value>
 	  </context-param>
 
 	

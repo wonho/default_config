@@ -1,12 +1,16 @@
 package edu.showcase.system.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 
 import edu.showcase.system.util.MessageUtil.MessageUtil;
@@ -48,13 +52,30 @@ import edu.showcase.system.util.MessageUtil.MessageUtil;
 @ComponentScan(basePackages={"edu.showcase"}, 
                excludeFilters=@ComponentScan.Filter(type=FilterType.ANNOTATION,
                value=Controller.class))
-@PropertySource("classpath:/properties/app.properties")
+@PropertySource("classpath:properties/app.properties")
+
+//@PropertySources({@PropertySource("classpath:properties/app.properties"),
+//	              @PropertySource("classpath:properties/dev.properties")
 public class RootConfig {
 	
+	@Autowired
+    Environment env;
+	
+	@Value("#{systemProperties['mongodb.port'] ?: 27017}")
+	private String mongodbPort;
+
+	private @Value("${dev.jdbc.url}") String url;
+	
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
+	 
 	@Bean
 	public MessageSource messageSource() {		
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
 //		messageSource.setBasename("classpath:messages/messages");
+		
 		messageSource.setBasename("WEB-INF/messages/messages");
 		messageSource.setDefaultEncoding("UTF-8");
 		

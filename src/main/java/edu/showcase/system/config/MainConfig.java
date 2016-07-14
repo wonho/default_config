@@ -8,12 +8,11 @@ import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@Import(value= {RootConfig.class,DaoConfig.class})
+@Import(value= {CommonConfig.class, DatabaseConfig.class, InfrastructureConfig.class})
 public class MainConfig {
 
 	@Autowired
 	private Environment env;
-	
 	
     @PostConstruct
     public void initApp() {

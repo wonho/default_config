@@ -49,14 +49,14 @@ import edu.showcase.system.util.MessageUtil.MessageUtil;
 */
 
 @Configuration
-@ComponentScan(basePackages={"edu.showcase"}, 
+@ComponentScan(basePackages={"edu.showcase.business"}, 
                excludeFilters=@ComponentScan.Filter(type=FilterType.ANNOTATION,
                value=Controller.class))
 @PropertySource("classpath:properties/app.properties")
 
 //@PropertySources({@PropertySource("classpath:properties/app.properties"),
 //	              @PropertySource("classpath:properties/dev.properties")
-public class RootConfig {
+public class CommonConfig {
 	
 	@Autowired
     Environment env;

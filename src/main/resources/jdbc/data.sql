@@ -1,0 +1,1 @@
+insert into tbl_user values('rednics', 'Shin won ho', '1234');

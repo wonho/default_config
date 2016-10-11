@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@Import(value= {CommonConfig.class, DatabaseConfig.class, InfrastructureConfig.class})
+@Import(value= {CommonConfig.class, DatabaseConfig.class, InfrastructureConfig.class,WebSecurityConfig.class})
 public class MainConfig {
 
 	@Autowired

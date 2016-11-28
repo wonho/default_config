@@ -13,15 +13,9 @@
 		              http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
 	                  ">
 	                  
-	<context:component-scan base-package="edu.showcase.business" use-default-filters="false">
-	    <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-	</context:component-scan>
-	
-	<bean class= "org.springframework.web.servlet.view.XmlViewResolver" >
-        <property name= "location" value="/WEB-INF/config/jaspers-views.xml" />
-        <property name= "order" value ="0"/>
-    </bean>
-
-	<mvc:annotation-driven/>
-	
+	<bean id= "pdfReport"
+	          class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView"
+	          p:url= "/WEB-INF/ireport/test.jrxml"
+	          p:reportDataKey="datasource" />
+          	
 </beans>

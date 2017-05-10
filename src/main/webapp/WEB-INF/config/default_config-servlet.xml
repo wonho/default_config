@@ -17,11 +17,6 @@
 	    <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
-	<bean class= "org.springframework.web.servlet.view.XmlViewResolver" >
-        <property name= "location" value="/WEB-INF/config/jaspers-views.xml" />
-        <property name= "order" value ="0"/>
-    </bean>
-
 	<mvc:annotation-driven/>
 	
 </beans>

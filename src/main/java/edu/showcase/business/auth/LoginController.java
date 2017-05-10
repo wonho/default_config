@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.showcase.business.auth.service.Melong;
+import edu.showcase.business.auth.service.UserService;
 
 @Controller
 @RequestMapping("/auth")
 public class LoginController {
 
 	Logger logger = LoggerFactory.getLogger(LoginController.class);
-	
 	
 	@RequestMapping(value="/login")
 	public String login(@RequestParam Map<String,Object> paramMap) throws Exception {

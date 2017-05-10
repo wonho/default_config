@@ -1,5 +1,5 @@
-create schema happyhouse AUTHORIZATION DBA;
-set schema happyhouse;
+create schema sample AUTHORIZATION DBA;
+set schema sample;
  
 drop table tbl_user if exists;
  

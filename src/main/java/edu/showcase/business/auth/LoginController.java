@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.showcase.business.auth.service.Melong;
-import edu.showcase.business.auth.service.UserService;
 
 @Controller
 @RequestMapping("/auth")

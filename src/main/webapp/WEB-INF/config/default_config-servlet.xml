@@ -19,4 +19,10 @@
 	
 	<mvc:annotation-driven/>
 	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order"  value="0" />		
+	</bean>	
+	
 </beans>

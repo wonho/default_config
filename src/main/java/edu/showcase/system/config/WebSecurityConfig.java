@@ -22,14 +22,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		    .authorizeRequests().anyRequest().authenticated()
+//		    .antMatchers("/auth/login.do").hasRole("admin")
 			.and()
 		    .formLogin()
 		        .loginPage("/auth/login.do")
 		        .defaultSuccessUrl("/auth/main.do")
+		        .loginProcessingUrl("/auth/loginProcess.do")
 		        .failureUrl("/auth/login.do")
 		        .permitAll()
 		        .and()
-		        .logout();
+		    .logout()
+		        .and()
+		    .csrf().disable();
 		
 //		http
 //		.authorizeRequests()                                                                

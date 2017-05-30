@@ -80,7 +80,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
 		List<MediaType> supportedMediaTypes = new ArrayList<>();
 		supportedMediaTypes.add(MediaType.APPLICATION_JSON);
-//		MediaType.parseMediaType("application/json");
+//		supportedMediaTypes.add(MediaType.parseMediaType("application/melong"));
 		jsonConverter.setSupportedMediaTypes(supportedMediaTypes);
 		ObjectMapper objectMapper = new ObjectMapper();
 		jsonConverter.setObjectMapper(objectMapper);		

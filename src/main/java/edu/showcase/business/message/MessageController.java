@@ -1,6 +1,5 @@
 package edu.showcase.business.message;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +15,6 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import edu.showcase.system.exception.BusinessException;
-import junit.framework.Test;
 
 @Controller
 @RequestMapping("/message")
@@ -62,6 +60,26 @@ public class MessageController {
 
 		return dataList;
 	}
+
+	@RequestMapping(value="/getjson2")
+	@ResponseBody
+	public List<Map<String,Object>> getJson2(@RequestParam Map<String, Object> dataHashMap) {
+		
+		logger.debug("{}",dataHashMap);
+		
+		Map<String,Object> dataMap = Maps.newHashMap();
+		
+		dataMap.put("cache1", "was1 cahced");
+		dataMap.put("cache2", "was2 cahced");
+		dataMap.put("cache3", "was3 cahced");
+		
+		List<Map<String,Object>> dataList = Lists.newArrayList();
+		
+		dataList.add(dataMap);
+
+		return dataList;
+	}
+	
 	
 	@RequestMapping(value="/getex")
 	@ResponseBody
@@ -69,4 +87,15 @@ public class MessageController {
 		logger.debug("exception Test");
 		throw new BusinessException("kkk");
 	}	
+	
+	@RequestMapping(value="/getexjsp")
+	public String getExJsp() {
+		logger.debug("exception Test");
+		Map testMap = null;
+				
+		testMap.get("aaa");
+		
+		return "exception/defaultException";
+	}	
+	
 }

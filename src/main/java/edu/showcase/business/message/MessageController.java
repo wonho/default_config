@@ -17,7 +17,6 @@ import com.google.common.collect.Maps;
 import edu.showcase.system.exception.BusinessException;
 
 @Controller
-@RequestMapping("/message")
 public class MessageController {
 	
 	Logger logger = LoggerFactory.getLogger(MessageController.class);
